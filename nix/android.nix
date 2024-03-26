@@ -1,9 +1,8 @@
-{ androidenv }:
-
+{ androidenv, buildToolsVersionForAapt2, ...}:
 androidenv.composeAndroidPackages {
   toolsVersion = "26.1.1";
   platformToolsVersion = "34.0.5";
-  buildToolsVersions = [ "30.0.3" ];
+  buildToolsVersions = [ buildToolsVersionForAapt2 "30.0.3" ];
   includeEmulator = false;
   emulatorVersion = "34.1.9";
   platformVersions = [ "28" "29" "30" "31" "32" "33" "34" ];
@@ -16,4 +15,14 @@ androidenv.composeAndroidPackages {
   ndkVersions = [ "22.0.7026061" ];
   useGoogleAPIs = false;
   useGoogleTVAddOns = false;
+  extraLicenses = [
+    "android-googletv-license"
+    "android-sdk-arm-dbt-license"
+    "android-sdk-license"
+    "android-sdk-preview-license"
+    "google-gdk-license"
+    "intel-android-extra-license"
+    "intel-android-sysimage-license"
+    "mips-android-sysimage-license"
+  ];
 }
